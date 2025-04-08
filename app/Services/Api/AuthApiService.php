@@ -44,13 +44,6 @@ class AuthApiService
 
     public function isLoggedIn(): JsonResponse
     {
-        if (! auth()->check()) {
-            return failureResponse(
-                message: 'User is not logged in',
-                code: 401
-            );
-        }
-
         $user = auth()->user();
 
         return successResponse(
